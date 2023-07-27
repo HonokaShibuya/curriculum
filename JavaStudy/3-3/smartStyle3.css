@@ -1,0 +1,55 @@
+@media screen and (max-width: 479px) {
+    .wrapper {
+        width: 200px;
+    }
+
+    .header {
+        height: 190px;
+    }
+
+    .box1 {
+        position: absolute;
+        right: 70px;
+        top: 15px;
+    }
+
+    .box2 {
+        position: absolute;
+        right: 70px;
+        top: 65px;
+    }
+
+    .box3 {
+        position: absolute;
+        right: 70px;
+        bottom: 15px;
+    }
+
+    .left {
+        width: 200px;
+        height: 100px;
+    }
+
+    .right {
+        width: 200px;
+        height: 210px;
+    }
+
+    .box4 {
+        position: absolute;
+        left: 30px;
+        top: 20px;
+    }
+
+    .box5 {
+        position: absolute;
+        left: 30px;
+        top: 80px;
+    }
+
+    .box6 {
+        position: absolute;
+        left: 30px;
+        bottom: 20px;
+    }
+}
