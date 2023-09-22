@@ -63,12 +63,18 @@ public class ExException {
                     // 問①は最下部にもあります。
                     // ルール: ここへ作成したメソッドを呼び出す
                     String str = null;
-                    System.out.println(str.length());
+                    try {
+                        str.length();
+                    } catch (NullPointerException e) {
+                        System.out.println(CONST_MSG_NULLPO);
+                    }
                     break;
                     case CONST_EXCEPTION_TRIGER_ARRAY_OUT_OF_BOUNDS:
                     // 問②: 「throw」を使用せずに「ArrayIndexOutOfBoundsException」を発生させる処理を記述しなさい。
                     // Tips: ご自身で配列を準備してください（使用する配列の型、要素数は自由）
-                    // ここへ記述
+                    int[] arrayNumbers = new int[3];
+                    System.out.println(arrayNumbers[10]);
+                    
                     break;
                     case CONST_EXCEPTION_TRIGER_CAST:
                     String castedStrValue = (String) CONST_OBJ_FOR_CLASS_CAST;
