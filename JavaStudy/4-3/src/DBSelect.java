@@ -29,7 +29,7 @@ public class DBSelect {
     private static final String USER = "postgres";
     /** ・パスワード */
     // 問③ データベースのパスワードを定数にしなさい。
-    private static final String PASS = "postgres";
+    private static final String PASS = "adgjmptw";
 
     public static void main(String[] args) {
 
@@ -40,7 +40,7 @@ public class DBSelect {
         try {
             Class.forName(POSTGRES_DRIVER);
             // 問④ 問①〜③の定数を使ってデータベースと接続しなさい。
-            connection = DriverManager.getConnection(JDBC_CONNECTION,USER,PASS);
+            connection = DriverManager.getConnection(JDBC_CONNECTION, USER, PASS);
             statement = connection.createStatement();
             // 問⑤ SHOHIN_IDが001と020のものを表示させるためのSQL文を記述しましょう。
             String SQL = "SELECT * FROM tb_shohin WHERE shohin_id = '001' OR shohin_id = '020'";
@@ -57,11 +57,11 @@ public class DBSelect {
                 System.out.println(column3);
             }
 
-        // forName()で例外発生
+            // forName()で例外発生
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
 
-        // getConnection()、createStatement()、executeQuery()で例外発生
+            // getConnection()、createStatement()、executeQuery()で例外発生
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -81,3 +81,4 @@ public class DBSelect {
         }
     }
 }
+

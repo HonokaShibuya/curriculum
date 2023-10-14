@@ -30,7 +30,7 @@ public class DBUpdate {
     private static final String USER = "postgres";
     /** ・パスワード */
     // 問③ データベースのパスワードを定数にしなさい。
-    private static final String PASS = "postgres";
+    private static final String PASS = "adgjmptw";
 
     public static void main(String[] args) {
 
@@ -48,7 +48,7 @@ public class DBUpdate {
             String SQL = "UPDATE tb_shohin SET shohin_name = '商品20' WHERE shohin_id = '020'";
 
             // 問⑥ 上記のSQL文を実行するための文を記述しましょう。
-            resultSet = statement.executeQuery(SQL);
+            statement.executeUpdate(SQL);
 
             //一覧表示
             String SQLselect = "SELECT * FROM TB_SHOHIN";

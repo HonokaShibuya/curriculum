@@ -29,7 +29,7 @@ public class DBPrepared {
     private static final String USER = "postgres";
     /** ・パスワード */
     // 問③ データベースのパスワードを定数にしなさい。
-    private static final String PASS = "postgres";
+    private static final String PASS = "adgjmptw";
 
     public static void main(String[] args) {
 
@@ -40,16 +40,16 @@ public class DBPrepared {
         try {
             Class.forName(POSTGRES_DRIVER);
             // 問④ 問①〜③の定数を使ってデータベースと接続しなさい。
-            connection = DriverManager.getConnection(JDBC_CONNECTION,USER,PASS);
+            connection = DriverManager.getConnection(JDBC_CONNECTION, USER, PASS);
             statement = connection.createStatement();
 
             String SQL = "SELECT * FROM TB_SHOHIN WHERE SHOHIN_ID = ? OR SHOHIN_ID = ? ";
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
 
             /*
-            * 問⑤ SHOHIN_IDが001と020のものを表示できるように
-            * PreparedStatementインターフェースを使って値をSQL文にセットしてみましょう。
-            */
+             * 問⑤ SHOHIN_IDが001と020のものを表示できるように
+             * PreparedStatementインターフェースを使って値をSQL文にセットしてみましょう。
+             */
             preparedStatement.setString(1,"001");
             preparedStatement.setString(2,"020");
 
@@ -65,11 +65,11 @@ public class DBPrepared {
                 System.out.println(column3);
             }
 
-        // forName()で例外発生
+            // forName()で例外発生
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
 
-        // getConnection()、createStatement()、executeQuery()で例外発生
+            // getConnection()、createStatement()、executeQuery()で例外発生
         } catch (SQLException e) {
             e.printStackTrace();
 
@@ -90,3 +90,4 @@ public class DBPrepared {
         }
     }
 }
+

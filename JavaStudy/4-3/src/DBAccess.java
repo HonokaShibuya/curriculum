@@ -32,7 +32,7 @@ public class DBAccess {
     private static final String USER = "postgres";
     /** ・パスワード */
     // 問③ データベースのパスワードを定数にしなさい。
-    private static final String PASS = "postgres";
+    private static final String PASS = "adgjmptw";
 
     public static void main(String[] args) {
 
@@ -43,7 +43,7 @@ public class DBAccess {
         try {
             Class.forName(POSTGRES_DRIVER);
             // 問④ 問①〜③の定数を使ってデータベースと接続しなさい。
-            connection = DriverManager.getConnection(JDBC_CONNECTION,USER,PASS);
+            connection = DriverManager.getConnection(JDBC_CONNECTION, USER, PASS);
             statement = connection.createStatement();
 
             String SQL = "SELECT * FROM TB_SHOHIN";
@@ -86,3 +86,4 @@ public class DBAccess {
         }
     }
 }
+
