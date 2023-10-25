@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
@@ -26,10 +27,9 @@ private UserService userService;
    */
 @GetMapping("/user/list")
 public String displayList(Model model) {
-
     //3行追加
   List<UserEntity> userlist = userService.searchAll();
-  model.addAllAttributes(userlist);
+  model.addAttribute("userlist",userlist);
   return "user/list";
 
 
