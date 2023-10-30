@@ -58,7 +58,7 @@ public class UserEntity  {
      */
     //2行追加
     @Column(name = "update_date")
-    private Date update_Date;
+    private Date updateDate;
 
     /**
      * 登録日時
