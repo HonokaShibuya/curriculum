@@ -88,6 +88,10 @@ public String create(@Validated @ModelAttribute UserRequest userRequest, Binding
  */
 @GetMapping("/user/{id}")
 public String displayView(@PathVariable  Integer id, Model model) {
+   //実装2行
+   UserEntity userEntity = userService.findById(id);
+   model.addAttribute("userData", userEntity);
+
     return "user/view";
 
 }
