@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<link rel="stylesheet" href="../css/CTRegistration.css">
+	<title>CTユーザ登録</title>
+</head>
+<body>
+	<div class="user">
+    <header class="user__header">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+        <h1 class="user__title">Welcome to Sign Up</h1>
+    </header>
+    <form th:action="@{/CTRsgistration/create}" th:object="${checkTestRequest}"
+    method="post">
+     <div class="Form">
+			<div th:if="${validationError}" th:each="error : ${validationError}">
+				<label class="text-danger" td style="color: red;" th:text="${error}"></label>
+			</div>
+ <form class="form" style=margin:20px>
+		<div class="form__group">
+            <input type="text" placeholder="UserID　　自動で採番されます。" class="form__input" readonly>
+             <th:if="${#fields.hasErrors('user_id')}" class="text-danger"></th:if>
+        </div>
+        <div class="form__group">
+            <input type="text" class="form__input" th:field="*{name}" placeholder="UserName">
+            <th:if="${#fields.hasErrors('name')}" class="text-danger"></th:if>
+        </div>
+        <div class="form__group">
+            <input type="text" class="form__input" th:field="*{kana}" placeholder="Kana">
+            <th:if="${#fields.hasErrors('kana')}" class="text-danger"></th:if>
+        </div>
+        <div class="form__group">
+            <input type="email" class="form__input" th:field="*{email}" placeholder="Email">
+            <th:if="${#fields.hasErrors('email')}" class="text-danger"></th:if>
+        </div>
+        <div class="form__group">
+            <input type="password" class="form__input" th:field="*{password}" placeholder="Password">
+            <th:if="${#fields.hasErrors('password')}" class="text-danger"></th:if>
+        </div>
+        <button class="btn" type="submit"><a th:href="@{/CTList}">Register</a>
+        </button>
+</body>
+</html>

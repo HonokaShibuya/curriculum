@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<link rel="stylesheet" href="../css/CTRegistration.css">
+	<title>CTユーザ編集・削除</title>
+</head>
+<body>
+	<div class="user">
+    <header class="user__header">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+        <h1 class="user__title">Editing and deletion</h1>
+    </header>
+    <form class="form">
+		<div class="form__group">
+            <input type="text" placeholder="UserID" class="form__input" readonly>
+             <th:if="${#fields.hasErrors('user_id')}" class="text-danger"></th:if>
+        </div>
+        <div class="form__group">
+            <input type="text" placeholder="UserName" class="form__input">
+            <th:if="${#fields.hasErrors('name')}" class="text-danger"></th:if>
+        </div>
+        <div class="form__group">
+            <input type="text" placeholder="Kana" class="form__input">
+            <th:if="${#fields.hasErrors('kana')}" class="text-danger"></th:if>
+        </div>
+        <div class="form__group">
+            <input type="email" placeholder="Email" class="form__input">
+            <th:if="${#fields.hasErrors('email')}" class="text-danger"></th:if>
+        </div>
+        <div class="form__group">
+            <input type="password" placeholder="Password" class="form__input">
+            <th:if="${#fields.hasErrors('password')}" class="text-danger"></th:if>
+        </div>
+        <div class="Buttons">
+				  <button type="submit" class="Form-Btn"><a th:href="@{/mypage}">編集</a></button>
+            	  <button type="button" class="Form-Btn-Delete"><a th:href="@{/UserDelete/{user_id}(user_id=*{user_id})}">削除</a></button>
+           		  <button type="button" class="Form-Btn-Back"><a th:href="@{/mypage}">戻る</a></button>
+           		  </button>
+			 </div>
+        <form th:action="@{/CTRegistration/create}" th:object="${checkTestRequest}"
+    method="post">
+    <div th:if="${validationError}" th:each="error : ${validationError}">
+				<label class="text-danger" td style="color: red;" th:text="${error}"></label>
+    </form>
+</div>
+</body>
+</html>

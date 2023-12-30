@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<link rel="stylesheet" href="../css/CTList.css">
+	<title>CTユーザ一覧</title>
+</head>
+<body>
+	<div class="user">
+    <header class="user__header">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+        <h1 class="user__title">List of Users</h1>
+    </header>
+    <table class="list_item">
+        <thead>
+          <tr>
+            <th>UserID</th>
+            <th>name</th>
+            <th>kana</th>
+            <th>email</th>
+            <th>password</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="ct_table : ${list}" th:object="${ct_table}">
+            <td th:text="*{user_id}"></td>
+            <td th:text="*{kana}"></td>
+            <td th:text="*{email}"></td>
+            <td th:text="*{password}"></td>
+            <td><a th:href="@{/CTList/{user_id}(user_id=*{user_id})}" class="btn btn-secondary">編集</a></td>
+          </tr>
+        </tbody>
+      </table>
+        <button class="btn" type="submit"><a th:href="@{/CTRegistration}">戻る</a>
+        <form th:action="@{/CTRegistration/create}" th:object="${checkTestRequest}"
+    method="post">
+    <div th:if="${validationError}" th:each="error : ${validationError}">
+				<label class="text-danger" td style="color: red;" th:text="${error}"></label>
+    </form>
+</div>
+</body>
+</html>
