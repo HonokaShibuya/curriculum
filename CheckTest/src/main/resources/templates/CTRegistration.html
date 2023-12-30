@@ -18,7 +18,7 @@ xmlns:th="http://www.thymeleaf.org">
     method="post">
      <div class="Form">
 			<div th:if="${validationError}" th:each="error : ${validationError}">
-				<label class="text-danger" td style="color: red;" th:text="${error}"></label>
+				<label class="text-danger" td style="color: red; font-size: 8.5px;" th:text="${error}"></label>
 			</div>
  <form class="form" style=margin:20px>
 		<div class="form__group">
