@@ -29,7 +29,6 @@ body {
 
 .user__title {
   font-size: 14px;
-  margin-bottom: -10px;
   font-weight: 500;
   color: white;
 }
@@ -56,11 +55,40 @@ body {
   background: #f7f7f7;
 }
 
-.btn {
-  display: block;
+.Buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.Form-Btn {
   width: 100%;
   padding: 20px;
   font-family: "Roboto";
+  border-radius: 6px;
+  outline: 0;
+  border: 0;
+  color: white;
+  background: #ABA194;
+  transition: 0.3s;
+}
+
+.Form-Btn-Delete {
+  width: 100%;
+  padding: 20px;
+  font-family: "Roboto";
+  border-radius: 6px;
+  outline: 0;
+  border: 0;
+  color: white;
+  background: #ABA194;
+  transition: 0.3s;
+}
+
+.Form-Btn-Back {
+  width: 100%;
+  padding: 20px;
+  font-family: "Roboto";
+  border-radius: 6px;
   outline: 0;
   border: 0;
   color: white;

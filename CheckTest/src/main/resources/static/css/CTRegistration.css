@@ -29,13 +29,14 @@ body {
 
 .user__title {
   font-size: 14px;
-  margin-bottom: -10px;
   font-weight: 500;
   color: white;
 }
 
 .form {
-  margin-top: 40px;
+  margin-top: 80px;
+  border-collapse: separate;
+  border-spacing: 0;
   border-radius: 6px;
   overflow: hidden;
   opacity: 0;
@@ -44,23 +45,23 @@ body {
 }
 
 .form__input {
-  display: block;
   width: 100%;
   padding: 20px;
+  border-radius: 6px;
   font-family: "Roboto";
   border: 0;
   outline: 0;
   transition: 0.3s;
-}
+  }
 .form__input:focus {
   background: #f7f7f7;
 }
 
 .btn {
-  display: block;
   width: 100%;
   padding: 20px;
   font-family: "Roboto";
+  border-radius: 6px;
   outline: 0;
   border: 0;
   color: white;

@@ -21,4 +21,6 @@ public class CheckTestRequest implements Serializable {
 
 	@NotEmpty(message="パスワードを入力してください")
 	private String password;
+
+	private Integer user_id;
 }

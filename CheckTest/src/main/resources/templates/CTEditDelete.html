@@ -12,9 +12,9 @@ xmlns:th="http://www.thymeleaf.org">
 	<div class="user">
     <header class="user__header">
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
-        <h1 class="user__title">Welcome to Sign Up</h1>
+        <h1 class="user__title">Editing and deletion</h1>
     </header>
-    <form th:action="@{/CTRsgistration/create}" th:object="${checkTestRequest}"
+    <form th:action="@{/CTEdit/update}" th:object="${checkTestRequest}"
     method="post">
      <div class="Form">
 			<div th:if="${validationError}" th:each="error : ${validationError}">
@@ -22,7 +22,7 @@ xmlns:th="http://www.thymeleaf.org">
 			</div>
  <form class="form" style=margin:20px>
 		<div class="form__group">
-            <input type="text" placeholder="UserID　　自動で採番されます。" class="form__input" readonly>
+            <input type="text" placeholder="UserID" th:field="*{user_id}" class="form__input" readonly>
              <th:if="${#fields.hasErrors('user_id')}" class="text-danger"></th:if>
         </div>
         <div class="form__group">
@@ -42,9 +42,9 @@ xmlns:th="http://www.thymeleaf.org">
             <th:if="${#fields.hasErrors('password')}" class="text-danger"></th:if>
         </div>
         <div class="Buttons">
-				  <button type="submit" class="Form-Btn"><a th:href="@{/mypage}">編集</a></button>
-            	  <button type="button" class="Form-Btn-Delete"><a th:href="@{/UserDelete/{user_id}(user_id=*{user_id})}">削除</a></button>
-           		  <button type="button" class="Form-Btn-Back"><a th:href="@{/mypage}">戻る</a></button>
+				  <button type="submit" class="Form-Btn"><a th:href="@{/CTList}">保存</a></button>
+            	  <button type="button" class="Form-Btn-Delete"><a th:href="@{/CTDelete/{user_id}(user_id=*{user_id})}">削除</a></button>
+           		  <button type="button" class="Form-Btn-Back"><a th:href="@{/CTList}">戻る</a></button>
            		  </button>
 			 </div>
     </form>

@@ -14,7 +14,7 @@ xmlns:th="http://www.thymeleaf.org">
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
         <h1 class="user__title">List of Users</h1>
     </header>
-    <table class="list_item">
+    <table class="list_item" style="text-align: center;">
         <thead>
           <tr>
             <th>UserID</th>
@@ -26,12 +26,13 @@ xmlns:th="http://www.thymeleaf.org">
           </tr>
         </thead>
         <tbody>
-          <tr th:each="ct_table : ${list}" th:object="${ct_table}">
+          <tr th:each="templates : ${CTList}" th:object="${templates}">
             <td th:text="*{user_id}"></td>
+            <td th:text="*{name}"></td>
             <td th:text="*{kana}"></td>
             <td th:text="*{email}"></td>
             <td th:text="*{password}"></td>
-            <td><a th:href="@{/CTList/{user_id}(user_id=*{user_id})}" class="btn btn-secondary">編集</a></td>
+            <td><a th:href="@{/CTEdit/{user_id}(user_id=*{user_id})}" class="btn-Edit">編集</a></td>
           </tr>
         </tbody>
       </table>

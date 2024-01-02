@@ -31,6 +31,14 @@ public class CheckTestService {
   }
 
   /**
+   * ユーザー情報 主キー検索
+   * @return 検索結果
+   */
+  public CheckTestEntity findById(Integer user_id) {
+    return checkTestRepository.findById(user_id).get();
+  }
+
+  /**
    * ユーザー情報 新規登録
    * @param user ユーザー情報
    */
@@ -41,5 +49,27 @@ public class CheckTestService {
 	  checkTest.setEmail(checkTestRequest.getEmail());
 	  checkTest.setPassword(checkTestRequest.getPassword());
 	  checkTestRepository.save(checkTest);
+	}
+
+  /**
+   * ユーザー情報 更新
+   * @param user ユーザー情報
+   */
+  public void update(CheckTestRequest checkTestRequest) {
+	  CheckTestEntity checkTestEntity = findById(checkTestRequest.getUser_id());
+	  checkTestEntity.setName(checkTestRequest.getName());
+	  checkTestEntity.setKana(checkTestRequest.getKana());
+	  checkTestEntity.setEmail(checkTestRequest.getEmail());
+	  checkTestEntity.setPassword(checkTestRequest.getPassword());
+	  checkTestRepository.save(checkTestEntity);
+  }
+
+  /**
+	 * ユーザー情報 物理削除
+	 * @param id ユーザーID
+	 */
+	public void delete(Integer user_id) {
+		CheckTestEntity checkTestEntity = findById(user_id);
+		checkTestRepository.delete(checkTestEntity);
 	}
 }
